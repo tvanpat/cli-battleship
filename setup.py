@@ -8,6 +8,7 @@ setup(
     version=VERSION,
     author='Tyson Van Patten',
     author_email='tyson@descriptdata.com',
+    url='https://github.com/tvanpat/cli-battleship'
     description=DESCRIPTION,
     install_requires=[]
 )
