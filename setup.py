@@ -4,11 +4,11 @@ VERSION = '0.0.1'
 DESCRIPTION = 'A basic CLI program to play battleship against the computer'
 
 setup(
-    name='cli_battleship',
+    name='cliBattleship',
     version=VERSION,
     author='Tyson Van Patten',
     author_email='tyson@descriptdata.com',
-    url='https://github.com/tvanpat/cli-battleship'
+    url='https://github.com/tvanpat/cli-battleship',
     description=DESCRIPTION,
     install_requires=[]
 )
