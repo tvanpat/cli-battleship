@@ -1,6 +1,6 @@
 from setuptools import setup, find_packages
 
-VERSION = '0.0.1'
+VERSION = '0.0.2'
 DESCRIPTION = 'A basic CLI program to play battleship against the computer'
 
 setup(
@@ -10,5 +10,6 @@ setup(
     author_email='tyson@descriptdata.com',
     url='https://github.com/tvanpat/cli-battleship',
     description=DESCRIPTION,
+    packages=find_packages(),
     install_requires=[]
 )
