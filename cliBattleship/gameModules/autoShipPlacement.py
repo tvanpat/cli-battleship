@@ -1,5 +1,5 @@
 import random
-from gameModules.gameBoards import generateBoard
+from .gameBoards import generateBoard
 
 
 def northPlaceCheck(shipSize, yIndexStart, xStart, yAxis):

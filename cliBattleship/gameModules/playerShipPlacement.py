@@ -1,6 +1,6 @@
-from gameModules.players import Player
-from gameModules.gameBoards import print_hunt_board
-from gameModules.autoShipPlacement import placeAllships, placementOptions
+from .players import Player
+from .gameBoards import print_hunt_board
+from .autoShipPlacement import placeAllships, placementOptions
 
 
 def playerAutoPlacementValidate(prompt):

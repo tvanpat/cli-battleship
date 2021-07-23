@@ -1,7 +1,8 @@
 from gameModules.players import Player
 from gameModules.autoShipPlacement import placeAllships
 from gameModules.playerShipPlacement import playerPlacement
-from gameModules.playerNumberFunctions import ComputerGameFunction, OnePlayerGameFunction
+from gameModules.playerNumberFunctions import ComputerGameFunction
+from gameModules.playerNumberFunctions import OnePlayerGameFunction
 
 
 def playerCountCheck(prompt):

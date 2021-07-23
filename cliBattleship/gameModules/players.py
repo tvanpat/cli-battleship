@@ -1,4 +1,4 @@
-from gameModules.gameBoards import generateBoard
+from .gameBoards import generateBoard
 
 
 class Ship:

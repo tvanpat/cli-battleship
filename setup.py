@@ -1,6 +1,6 @@
 from setuptools import setup, find_packages
 
-VERSION = '0.0.2'
+VERSION = '0.0.4'
 DESCRIPTION = 'A basic CLI program to play battleship against the computer'
 
 setup(

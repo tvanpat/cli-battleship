@@ -1,6 +1,6 @@
-from gameModules.gameFunctions import randomPlayer, fullTurn
-from gameModules.computerPlays import computerShot
-from gameModules.playerPlays import playerShot
+from .gameFunctions import randomPlayer, fullTurn
+from .computerPlays import computerShot
+from .playerPlays import playerShot
 
 
 def printTurnResult(turnResult):

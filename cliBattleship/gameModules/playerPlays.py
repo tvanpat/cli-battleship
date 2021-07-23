@@ -1,6 +1,6 @@
-from gameModules.gameBoards import print_hunt_board
-from gameModules.gameBoards import print_prob_board
-from gameModules.playerShipPlacement import boardCheckValidate, validateLocationInput
+from .gameBoards import print_hunt_board
+from .gameBoards import print_prob_board
+from .playerShipPlacement import boardCheckValidate, validateLocationInput
 
 def printProbBoard(offPlayer):
     offPlayer.updateCumlativeProb()
