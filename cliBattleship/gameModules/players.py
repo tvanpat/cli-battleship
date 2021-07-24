@@ -1,9 +1,28 @@
-from .gameBoards import generateBoard
+from .gameBoards import generateBoard, generateXaxis, generateYaxis
 
 
 class Ship:
+    """A Class to represent a ship
+    """
     def __init__(self, size, shipAbbr, shipName):
-        """Inits SampleClass with blah."""
+        """
+        Constructs all the necessary attributes for the class object.
+
+        Parameters
+        ----------
+            operational : bool
+                Is the ship operational
+            size : int
+                The Default size of the ship, number of hits the ship has
+            hitsRemaining : int
+                The number of hits remaining on the ship
+            placement: list
+                A list containing the locations of the ship.
+            shipAbbr: str
+                The ship abbreviation
+            shipName: str
+                The standard name for the ship
+        """
         self.operational = True
         self.size = size
         self.hitsRemaining = size
@@ -13,7 +32,51 @@ class Ship:
 
 
 class Player:
+    """A Class to represent a player
+    """
     def __init__(self, computer=False, computerLevel=0):
+        """
+        Constructs all the necessary attributes for the person object.
+
+        Parameters
+        ----------
+            nanem : str
+                name of the person
+            computer : bool
+                bool representing if the player is a computer
+            computerLevel : int
+                level of the computer
+            huntMode : bool
+                reprenting if the player is in hunt mode
+            huntModeStartShot : str
+                the shot that put the player into hunt mode
+            lastShotResult : str
+                represents the result of the last shot H or M
+            huntBoard : dict
+                board representing the shot fired by the place
+            shipCount : int
+                number of ships the player currently has
+            moveCount : int
+                number of moves the player has made
+            masterPlacement : list
+                a list containing the locations of all player ships
+            masterBoard : dict
+                a dictionary containing the location and ship types
+            carrier : Class
+                initiates the carrier as a subclass of player
+            battleship : Class
+                initiates the battleship as a subclass of player
+            cruiser : Class
+                initiates the cruiser as a subclass of player
+            submarine : Class
+                initiates the submarine as a subclass of player
+            destroyer : Class
+                initiates the destroyer as a subclass of player
+            xAxis : list
+                a list of the x axis of the game
+            yAxis : list
+                a list of the y axis
+        """
         self.name = None
         self.computer = computer
         self.computerLevel = computerLevel
@@ -30,8 +93,8 @@ class Player:
         self.cruiser = Ship(3, 'c', 'Cruiser')
         self.submarine = Ship(3, 'S', 'Submarine')
         self.destroyer = Ship(2, 'D', 'Destroyer')
-        self.xAxis = [i for i in range(1, 11)]
-        self.yAxis = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J']
+        self.xAxis = generateXaxis()
+        self.yAxis = generateYaxis()
         self.carrierProb = 0
         self.battleshipProb = 0
         self.cruiserProb = 0
