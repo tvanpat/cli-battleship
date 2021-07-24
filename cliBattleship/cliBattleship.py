@@ -75,7 +75,8 @@ def newOnePlayerGame():
 
 def main():
     print('Welcome to Battleship')
-    playerNumbers = playerCountCheck('Please enter the number of players (0, 1): ')
+    playerNumbers = playerCountCheck('Please enter the number '
+                                     'of players (0, 1): ')
     if playerNumbers == 0:
         gl = newComputerGame()
         print(f'{gl.get("gameWinner", " ")} won the game '
