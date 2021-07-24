@@ -11,11 +11,11 @@ def playerCountCheck(prompt):
             playerCount = int(input(prompt))
 
         except ValueError:
-            print("Sorry, please enter either a 0, 1, or 2.")
+            print("Sorry, please enter either a 0 or 1.")
             continue
 
         if playerCount not in [0, 1, 2]:
-            print('Sorry, your responce must be 0, 1, or 2')
+            print('Sorry, your responce must be 0, 1')
             continue
 
         else:
@@ -75,7 +75,7 @@ def newOnePlayerGame():
 
 def main():
     print('Welcome to Battleship')
-    playerNumbers = playerCountCheck('Please enter the number of players: ')
+    playerNumbers = playerCountCheck('Please enter the number of players (0, 1): ')
     if playerNumbers == 0:
         gl = newComputerGame()
         print(f'{gl.get("gameWinner", " ")} won the game '
