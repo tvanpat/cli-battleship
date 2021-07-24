@@ -1,7 +1,32 @@
-def generateBoard():
-    board = {}
+def generateXaxis():
+    """Creates a list for the x axis of 1-10
+
+    Returns:
+        LIST: Contains range from 1 - 10
+    """
     x_axis = [i for i in range(1, 11)]
+    return x_axis
+
+
+def generateYaxis():
+    """Creates a list for the y axis of the letters A-J
+
+    Returns:
+        LIST: Contains range from A-J
+    """
     y_axis = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J']
+    return y_axis
+
+
+def generateBoard():
+    """Generates a dictionary which represents a blank battleship board
+
+    Returns:
+        DICT: A dictionary that represents the battleship board
+    """
+    board = {}
+    x_axis = generateXaxis()
+    y_axis = generateYaxis()
     for y in y_axis:
         for x in x_axis:
             pos = f'{y}:{x}'
@@ -10,6 +35,16 @@ def generateBoard():
 
 
 def clean_board(shipDict):
+    """Takes the given dictionary and replaces the 0 values with a single
+    white space.  This is to show a clean looking board
+
+    Args:
+        shipDict (DICT): A dictionary representing the battleship board
+
+    Returns:
+        DICT: A dictionary where all the 0 values have been replaced with
+        a single white space.
+    """
     for key, value in shipDict.items():
         if value == '0':
             shipDict[key] = ' '
@@ -17,6 +52,11 @@ def clean_board(shipDict):
 
 
 def print_hunt_board(ship_dict):
+    """Will print the given dictionary in an easy to read format.
+
+    Args:
+        ship_dict (DICT): Dictionary representing the battleship board
+    """
     ship_dict = clean_board(ship_dict)
     print('    1   2   3   4   5   6   7   8   9   10')
     print('   --- --- --- --- --- --- --- --- --- ---')
@@ -43,6 +83,8 @@ def print_hunt_board(ship_dict):
 
 
 def print_empty_board():
+    """prints a blank battleship board
+    """
     print('    1   2   3   4   5   6   7   8   9   10')
     print('   --- --- --- --- --- --- --- --- --- ---')
     print('A |   |   |   |   |   |   |   |   |   |   |')
@@ -67,6 +109,12 @@ def print_empty_board():
     print('   --- --- --- --- --- --- --- --- --- ---')
 
 def print_prob_board(ship_dict):
+    """Will print the given dictionary in an easy to read format.  Larger in
+    format to allow for double digit numbers to be shown correctly.
+
+    Args:
+        ship_dict (DICT): Dictionary representing the battleship board
+    """
     ship_dict = clean_board(ship_dict)
     print('     1      2      3      4      5      6      7      8      9     10')
     print('   -----  -----  -----  -----  -----  -----  -----  -----  -----  -----')
