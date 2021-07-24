@@ -1,7 +1,25 @@
 import random
 
 
+# refactor to break into multiple simple functions
 def fullTurn(shot, offPlayer, defPlayer):
+    """This function represents a full turn of battleship. It takes an
+    offensive player shot and checks the defense player placement board.
+    If the shot is not in the placement board list it will return a json
+    where the shot result is M.  If it is a hit it will place the offensive
+    player into Hunt Mode and reduce the ship hit by one.  If the ship has zero
+    hits remaining the function will reduce the defplayer ship count by one.
+    If this results in no more ships the game will be over.
+
+    Args:
+        shot (STR): The location of the computer shot in string format,
+        example A:5
+        offPlayer (CLASS): The offensive player
+        defPlayer (CLASS): The defense player
+
+    Returns:
+        DICT: returns a diction in json format of the shot results
+    """
     offPlayer.moveCount += 1
     ship = checkShot(shot, defPlayer)
     if ship == 'Miss':
@@ -45,6 +63,16 @@ def fullTurn(shot, offPlayer, defPlayer):
 
 
 def checkShot(shot, defPlayer):
+    """Checks the shot of the offensive player and returns the ship hit
+    or Miss
+
+    Args:
+        shot (STR): The location of the computer shot in string format,
+        defPlayer (CLASS): The defensive player
+
+    Returns:
+        STR: Returns the ship hit or Miss
+    """
     if defPlayer.checkShotMaster(shot) is True:
         if defPlayer.checkCarrierShot(shot) is True:
             return "Carrier"
@@ -61,6 +89,12 @@ def checkShot(shot, defPlayer):
 
 
 def reduceShipHits(ship, defPlayer):
+    """Reduces the ship current count by one
+
+    Args:
+        ship (STR): String name of the ship that was hit
+        defPlayer (CLASS): Defensive Player
+    """
     if ship == 'Carrier':
         defPlayer.reduceCarrierCount()
     elif ship == 'Battleship':
@@ -74,10 +108,28 @@ def reduceShipHits(ship, defPlayer):
 
 
 def checkShipHits(ship, defPlayer):
+    """Checks the ship remaining hits of the defensive player
+
+    Args:
+        ship (STR): String name of the ship that was hit
+        defPlayer (CLASS): Defensive Player
+
+    Returns:
+        INT: Remaining hits of defensive player ship
+    """
     return getattr(getattr(defPlayer, ship.lower()), 'hitsRemaining')
 
 
 def randomPlayer(player1, player2):
+    """Chooses a random player to start the game
+
+    Args:
+        player1 (CLASS): Player 1
+        player2 (CLASS): Player 2
+
+    Returns:
+        CLASS: assigns player the offensive or defensive.
+    """
     offPlayer = random.choice([player1, player2])
     if offPlayer == player1:
         defPlayer = player2
