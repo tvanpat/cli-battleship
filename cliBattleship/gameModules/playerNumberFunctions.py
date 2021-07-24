@@ -82,7 +82,6 @@ def OnePlayerGameFunction(player1, player2):
             shot = computerShot(offPlayer)
         else:
             shot = playerShot(offPlayer)
-
         offPlayer.lastShot = shot
         turnResult = fullTurn(shot, offPlayer, defPlayer)
         gamestatus = turnResult.get('gameStatus', 'in-progress')
