@@ -3,6 +3,19 @@ from .gameBoards import generateBoard
 
 
 def northPlaceCheck(shipSize, yIndexStart, xStart, yAxis):
+    """Given a start position on the y index and a ship size will check if
+    if the y position is a valid location.
+
+    Args:
+        shipSize (INT): Ship size taken from Ship Class
+        yIndexStart (INT): Start index location
+        xStart (STR): The start position on the X Axis, is a letter
+        yAxis (List): The y axis range in list
+
+    Returns:
+        [List]: If range is a valid location for the y axis start will return
+        the valid list, else it will return false.
+    """
     northShipPlace = []
     tempLastIndex = (yIndexStart + 1) - shipSize
     if tempLastIndex >= 0 and tempLastIndex <= 10:
@@ -14,6 +27,19 @@ def northPlaceCheck(shipSize, yIndexStart, xStart, yAxis):
 
 
 def southPlaceCheck(shipSize, yIndexStart, xStart, yAxis):
+    """Given a start position on the y index and a ship size will check if
+    if the y position is a valid location.
+
+    Args:
+        shipSize (INT): Ship size taken from Ship Class
+        yIndexStart (INT): Start index location
+        xStart (STR): The start position on the X Axis, is a letter
+        yAxis (List): The y axis range in list
+
+    Returns:
+        [List]: If range is a valid location for the y axis start will return
+        the valid list, else it will return false.
+    """
     southShipPlace = []
     tempLastIndex = yIndexStart + shipSize
     if tempLastIndex >= 0 and tempLastIndex <= 10:
@@ -25,6 +51,19 @@ def southPlaceCheck(shipSize, yIndexStart, xStart, yAxis):
 
 
 def westPlaceCheck(shipSize, xIndexStart, yStart, xAxis):
+    """Given a start position on the x index and a ship size will check if
+    if the x position is a valid location.
+
+    Args:
+        shipSize (INT): Ship size taken from Ship Class
+        xIndexStart (INT): Start index location
+        yStart (STR): The start position on the y Axis, is a letter
+        xAxis ([INT]): The x axis range in a list
+
+    Returns:
+        [List]: If range is a valid location for the y axis start will return
+        the valid list, else it will return false.
+    """
     westShipPlace = []
     tempLastIndex = (xIndexStart + 1) - shipSize
     if tempLastIndex >= 0 and tempLastIndex <= 10:
@@ -37,6 +76,19 @@ def westPlaceCheck(shipSize, xIndexStart, yStart, xAxis):
 
 
 def eastPlaceCheck(shipSize, xIndexStart, yStart, xAxis):
+    """Given a start position on the x index and a ship size will check if
+    if the y position is a valid location.
+
+    Args:
+        shipSize (INT): Ship size taken from Ship Class
+        xIndexStart (INT): Start index location
+        yStart (STR): The start position on the Y Axis, is a letter
+        yAxis ([INT]): The x x axis range in a list
+
+    Returns:
+        [List]: If range is a valid location for the y axis start will return
+        the valid list, else it will return false.
+    """
     eastShipPlace = []
     tempLastIndex = xIndexStart + shipSize
     if tempLastIndex >= 0 and tempLastIndex <= 10:
@@ -48,6 +100,18 @@ def eastPlaceCheck(shipSize, xIndexStart, yStart, xAxis):
 
 
 def placementOptions(loc1, ship, player):
+    """Take a location, ship class, and player class calculates possible
+    position ranges based upon start location of loc1
+
+    Args:
+        loc1 (STR): Start location in string form, example A:5
+        ship (INT): Ship Size from the Ship Class
+        player (Class): The Player object
+
+    Returns:
+        List: Contains a nest list of possible ship locations
+        based upon start location
+    """
     possLocList = []
     xAxis = [i for i in range(1, 11)]
     yAxis = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J']
@@ -84,6 +148,11 @@ def placementOptions(loc1, ship, player):
 
 
 def randomLocation():
+    """Generates a random location of the game board
+
+    Returns:
+        STR: String in the format of <letter>:<number> example A:5
+    """
     gameBoard = generateBoard()
     gameBoardList = [*gameBoard]
     possibleLocation = random.choice(gameBoardList)
@@ -91,6 +160,14 @@ def randomLocation():
 
 
 def findCarrierLocation(player):
+    """Based on randomLocation() and possible carrier locations based on
+    placementOptions() return a random list for the carrier to be placed in
+    Args:
+        player (Class): Player Class
+
+    Returns:
+        List: Location to place the player Carrier
+    """
     while True:
         while True:
             possibleLocation = randomLocation()
@@ -107,6 +184,14 @@ def findCarrierLocation(player):
 
 
 def findBattleshipLocation(player):
+    """Based on randomLocation() and possible battleship locations based on
+    placementOptions() return a random list for the carrier to be placed in
+    Args:
+        player (Class): Player Class
+
+    Returns:
+        List: Location to place the player Battleship
+    """
     while True:
         while True:
             possibleLocation = randomLocation()
@@ -123,6 +208,14 @@ def findBattleshipLocation(player):
 
 
 def findCruiserLocation(player):
+    """Based on randomLocation() and possible cruiser locations based on
+    placementOptions() return a random list for the carrier to be placed in
+    Args:
+        player (Class): Player Class
+
+    Returns:
+        List: Location to place the player Cruiser
+    """
     while True:
         while True:
             possibleLocation = randomLocation()
@@ -140,6 +233,14 @@ def findCruiserLocation(player):
 
 
 def findSubmarineLocation(player):
+    """Based on randomLocation() and possible submarine locations based on
+    placementOptions() return a random list for the carrier to be placed in
+    Args:
+        player (Class): Player Class
+
+    Returns:
+        List: Location to place the player Submarine
+    """
     while True:
         while True:
             possibleLocation = randomLocation()
@@ -157,6 +258,14 @@ def findSubmarineLocation(player):
 
 
 def findDestroyerLocation(player):
+    """Based on randomLocation() and possible destroyer locations based on
+    placementOptions() return a random list for the carrier to be placed in
+    Args:
+        player (Class): Player Class
+
+    Returns:
+        List: Location to place the player Destroyer
+    """
     while True:
         while True:
             possibleLocation = randomLocation()
@@ -174,6 +283,11 @@ def findDestroyerLocation(player):
 
 
 def placeAllships(player):
+    """Automatically places all the ships
+
+    Args:
+        player (Class): The player class
+    """
     player.placeCarrier(findCarrierLocation(player))
     player.placeBattleship(findBattleshipLocation(player))
     player.placeCruiser(findCruiserLocation(player))
