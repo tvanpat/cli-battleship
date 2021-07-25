@@ -64,7 +64,7 @@ def newOnePlayerGame():
     playerPlacement(player1)
     player2 = Player()
     player2.computerLevel = computerLevelCheck('Please enter the level of '
-                                               'computer player 2 (1 is the '
+                                               'computer player 2 (0 is the '
                                                'lowest 4 is the highest) ')
     player2.computer = True
     player2.name = 'Computron'
