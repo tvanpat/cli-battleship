@@ -62,7 +62,7 @@ def playerShot(offPlayer):
     """
     print_hunt_board(offPlayer.huntBoard)
     probBoardResults = boardCheckValidate('Would you like to print the'
-                                          'probability matrix? (Y/N)\n')
+                                          ' probability matrix? (Y/N)\n')
     if probBoardResults is True:
         printProbBoard(offPlayer)
     shot = fullShotValidation(offPlayer)
